@@ -9,6 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet var currencyTextFields: [UITextField]!
+    
     var exchange: Exchange? {
         didSet {
             print(exchange!)
