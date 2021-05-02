@@ -64,11 +64,11 @@
 			children = (
 				E3314EC1263F010D00E7EC5C /* Managers */,
 				E3314EC0263F010600E7EC5C /* Models */,
+				E3F2D2DE263F45E300FE5E1E /* Views */,
 				E3314EBE263F00AA00E7EC5C /* ViewController */,
 				E3314EBD263F009B00E7EC5C /* Storyboards */,
 				E3314EBF263F00F900E7EC5C /* Supporting */,
 				E3314EC2263F012C00E7EC5C /* Resources  */,
-				E3F2D2DB263F428700FE5E1E /* CustomTextField.swift */,
 			);
 			path = MoneyConverter;
 			sourceTree = "<group>";
@@ -122,6 +122,14 @@
 				E3314EB0263F006200E7EC5C /* Assets.xcassets */,
 			);
 			path = "Resources ";
+			sourceTree = "<group>";
+		};
+		E3F2D2DE263F45E300FE5E1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3F2D2DB263F428700FE5E1E /* CustomTextField.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
