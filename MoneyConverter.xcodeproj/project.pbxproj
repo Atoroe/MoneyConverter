@@ -56,15 +56,63 @@
 		E3314EA6263F005B00E7EC5C /* MoneyConverter */ = {
 			isa = PBXGroup;
 			children = (
-				E3314EA7263F005B00E7EC5C /* AppDelegate.swift */,
-				E3314EA9263F005B00E7EC5C /* SceneDelegate.swift */,
-				E3314EAB263F005B00E7EC5C /* ViewController.swift */,
-				E3314EAD263F005B00E7EC5C /* Main.storyboard */,
-				E3314EB0263F006200E7EC5C /* Assets.xcassets */,
-				E3314EB2263F006200E7EC5C /* LaunchScreen.storyboard */,
-				E3314EB5263F006200E7EC5C /* Info.plist */,
+				E3314EC1263F010D00E7EC5C /* Managers */,
+				E3314EC0263F010600E7EC5C /* Models */,
+				E3314EBE263F00AA00E7EC5C /* ViewController */,
+				E3314EBD263F009B00E7EC5C /* Storyboards */,
+				E3314EBF263F00F900E7EC5C /* Supporting */,
+				E3314EC2263F012C00E7EC5C /* Resources  */,
 			);
 			path = MoneyConverter;
+			sourceTree = "<group>";
+		};
+		E3314EBD263F009B00E7EC5C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E3314EAD263F005B00E7EC5C /* Main.storyboard */,
+				E3314EB2263F006200E7EC5C /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E3314EBE263F00AA00E7EC5C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E3314EAB263F005B00E7EC5C /* ViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E3314EBF263F00F900E7EC5C /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				E3314EA7263F005B00E7EC5C /* AppDelegate.swift */,
+				E3314EA9263F005B00E7EC5C /* SceneDelegate.swift */,
+				E3314EB5263F006200E7EC5C /* Info.plist */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		E3314EC0263F010600E7EC5C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E3314EC1263F010D00E7EC5C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E3314EC2263F012C00E7EC5C /* Resources  */ = {
+			isa = PBXGroup;
+			children = (
+				E3314EB0263F006200E7EC5C /* Assets.xcassets */,
+			);
+			path = "Resources ";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +336,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SK72H5U39;
-				INFOPLIST_FILE = MoneyConverter/Info.plist;
+				INFOPLIST_FILE = MoneyConverter/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apoluyanovich.MoneyConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SK72H5U39;
-				INFOPLIST_FILE = MoneyConverter/Info.plist;
+				INFOPLIST_FILE = MoneyConverter/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.apoluyanovich.MoneyConverter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
