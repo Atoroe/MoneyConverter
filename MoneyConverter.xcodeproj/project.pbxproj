@@ -13,6 +13,8 @@
 		E3314EAF263F005B00E7EC5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3314EAD263F005B00E7EC5C /* Main.storyboard */; };
 		E3314EB1263F006200E7EC5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3314EB0263F006200E7EC5C /* Assets.xcassets */; };
 		E3314EB4263F006200E7EC5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3314EB2263F006200E7EC5C /* LaunchScreen.storyboard */; };
+		E3314EC4263F01B800E7EC5C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3314EC3263F01B800E7EC5C /* NetworkManager.swift */; };
+		E3314EC7263F02CA00E7EC5C /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3314EC6263F02CA00E7EC5C /* Exchange.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E3314EB0263F006200E7EC5C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3314EB3263F006200E7EC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3314EB5263F006200E7EC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3314EC3263F01B800E7EC5C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		E3314EC6263F02CA00E7EC5C /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 		E3314EC0263F010600E7EC5C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E3314EC6263F02CA00E7EC5C /* Exchange.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -103,6 +108,7 @@
 		E3314EC1263F010D00E7EC5C /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				E3314EC3263F01B800E7EC5C /* NetworkManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -185,8 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3314EC4263F01B800E7EC5C /* NetworkManager.swift in Sources */,
 				E3314EAC263F005B00E7EC5C /* ViewController.swift in Sources */,
 				E3314EA8263F005B00E7EC5C /* AppDelegate.swift in Sources */,
+				E3314EC7263F02CA00E7EC5C /* Exchange.swift in Sources */,
 				E3314EAA263F005B00E7EC5C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +344,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SK72H5U39;
-				INFOPLIST_FILE = MoneyConverter/Resources/Info.plist;
+				INFOPLIST_FILE = MoneyConverter/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -355,7 +363,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SK72H5U39;
-				INFOPLIST_FILE = MoneyConverter/Resources/Info.plist;
+				INFOPLIST_FILE = MoneyConverter/Supporting/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

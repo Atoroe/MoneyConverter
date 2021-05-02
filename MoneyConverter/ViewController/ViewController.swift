@@ -8,10 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var exchange: Exchange? {
+        didSet {
+            print(exchange!)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        NetworkManager.shared.getConvertionRates(code: Code.rub) { (exchange) in
+            self.exchange = exchange
+        }
     }
 
 
