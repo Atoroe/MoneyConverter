@@ -14,7 +14,8 @@
 		E3314EB1263F006200E7EC5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3314EB0263F006200E7EC5C /* Assets.xcassets */; };
 		E3314EB4263F006200E7EC5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3314EB2263F006200E7EC5C /* LaunchScreen.storyboard */; };
 		E3314EC4263F01B800E7EC5C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3314EC3263F01B800E7EC5C /* NetworkManager.swift */; };
-		E3314EC7263F02CA00E7EC5C /* Exchange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3314EC6263F02CA00E7EC5C /* Exchange.swift */; };
+		E3314EC7263F02CA00E7EC5C /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3314EC6263F02CA00E7EC5C /* Rate.swift */; };
+		E3F2D2DC263F428800FE5E1E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F2D2DB263F428700FE5E1E /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		E3314EB3263F006200E7EC5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3314EB5263F006200E7EC5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3314EC3263F01B800E7EC5C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		E3314EC6263F02CA00E7EC5C /* Exchange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exchange.swift; sourceTree = "<group>"; };
+		E3314EC6263F02CA00E7EC5C /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		E3F2D2DB263F428700FE5E1E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				E3314EBD263F009B00E7EC5C /* Storyboards */,
 				E3314EBF263F00F900E7EC5C /* Supporting */,
 				E3314EC2263F012C00E7EC5C /* Resources  */,
+				E3F2D2DB263F428700FE5E1E /* CustomTextField.swift */,
 			);
 			path = MoneyConverter;
 			sourceTree = "<group>";
@@ -100,7 +103,7 @@
 		E3314EC0263F010600E7EC5C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E3314EC6263F02CA00E7EC5C /* Exchange.swift */,
+				E3314EC6263F02CA00E7EC5C /* Rate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,8 +196,9 @@
 			files = (
 				E3314EC4263F01B800E7EC5C /* NetworkManager.swift in Sources */,
 				E3314EAC263F005B00E7EC5C /* ViewController.swift in Sources */,
+				E3F2D2DC263F428800FE5E1E /* CustomTextField.swift in Sources */,
 				E3314EA8263F005B00E7EC5C /* AppDelegate.swift in Sources */,
-				E3314EC7263F02CA00E7EC5C /* Exchange.swift in Sources */,
+				E3314EC7263F02CA00E7EC5C /* Rate.swift in Sources */,
 				E3314EAA263F005B00E7EC5C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

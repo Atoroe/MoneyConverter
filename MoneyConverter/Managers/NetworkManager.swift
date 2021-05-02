@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Code: String {
+enum Code: String, CaseIterable{
     case rub = "RUB"
     case usd = "USD"
     case eur = "EUR"
@@ -19,15 +19,15 @@ class NetworkManager {
     
     let key = "667fa215140eb6a05a16c31a"
     
-    func getConvertionRates(code: Code, complition: @escaping ((Exchange?) -> ())) {
+    func getRate(code: Code, complition: @escaping ((Rate?) -> ())) {
         guard let url = URL(string: "https://v6.exchangerate-api.com/v6/\(key)/latest/\(code.rawValue)") else { return }
         URLSession.shared.dataTask(with: url) { (data, _, error) in
             guard let data = data else { return }
-            var decoderExchange : Exchange?
+            var decoderRate : Rate?
             do {
-                decoderExchange = try JSONDecoder().decode(Exchange.self, from: data)
+                decoderRate = try JSONDecoder().decode(Rate.self, from: data)
                 DispatchQueue.main.async {
-                    complition(decoderExchange)
+                    complition(decoderRate)
                 }
             } catch let error{
                 print(error.localizedDescription)
