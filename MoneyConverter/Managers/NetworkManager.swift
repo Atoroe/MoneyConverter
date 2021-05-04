@@ -17,19 +17,34 @@ class NetworkManager {
     private init() {}
     static let shared = NetworkManager()
     
-    private let key = "667fa215140eb6a05a16c31a"
+    let key = "667fa215140eb6a05a16c31a"
+    let code = Code.rub
     
-    func getRate(code: Code, complition: @escaping ((Rate?) -> ())) {
-        guard let url = URL(string: "https://v6.exchangerate-api.com/v6/\(key)/latest/\(code.rawValue)") else { return }
-        URLSession.shared.dataTask(with: url) { (data, _, error) in
+    var url: URL {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "v6.exchangerate-api.com"
+        components.path = "/v6/" + key + "/latest/" + code.rawValue
+        guard let url = components.url else { preconditionFailure("Invalid URL components: \(components)") }
+        return url
+    }
+    
+    func fetchData(with complition: @escaping (Rate?) -> Void) {
+        URLSession.shared.dataTask(with: self.url) { (data, _, error) in
+            if let error = error {
+                print(error)
+                return
+            }
+            
             guard let data = data else { return }
+            
             do {
-                let decoderRate = try JSONDecoder().decode(Rate.self, from: data)
+                let rate = try JSONDecoder().decode(Rate.self, from: data)
                 DispatchQueue.main.async {
-                    complition(decoderRate)
+                    complition(rate)
                 }
             } catch let error{
-                print(error.localizedDescription)
+                print(error)
             }
         }.resume()
         

@@ -6,37 +6,65 @@
 //
 
 import UIKit
+import Alamofire
 
-class ViewController: UIViewController {
+class ExchangeViewController: UIViewController {
     
     @IBOutlet var currencyTextFields: [UITextField]!
     
-    var rates: [Rate] = []
+    let url = "https://v6.exchangerate-api.com/v6/667fa215140eb6a05a16c31a/latest/RUB"
+    
+    var rates: Rate? {
+        didSet {
+            
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getExchangeRates()
         addTarget(to: currencyTextFields)
         addIconsToTextFields()
+        
+        alamofireFetchData()
+    }
+    
+    func alamofireFetchData() {
+        AF.request(url)
+            .validate()
+            .responseDecodable(of: Rate.self) { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    self.rates = value
+                    DispatchQueue.main.async {
+                        print(self.rates as Any)
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+                
+            }
     }
     
 }
 
 //MARK: - Private Methods
-extension ViewController {
-    private func getExchangeRates() {
-        for code in Code.allCases {
-            NetworkManager.shared.getRate(code: code) { (rate) in
-                guard let rate = rate else { return }
-                self.rates.append(rate)
-            }
-        }
-    }
-}
+//extension ExchangeViewController {
+//    private func fetchExchangeRates() {
+//        let codes = Code.allCases
+//        print(codes)
+//        for code in codes {
+//            NetworkManager.shared.fetchData(from: url) { (rate) in
+//                guard let rate = rate else { return }
+//                self.rates?.append(rate)
+//            }
+//                 }
+//    }
+//}
 
 //MARK: - Text Fields
-extension ViewController: UITextFieldDelegate {
+extension ExchangeViewController: UITextFieldDelegate {
     private func addTarget(to textFieldes: [UITextField]) {
         for textField in textFieldes {
             textField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
@@ -51,19 +79,6 @@ extension ViewController: UITextFieldDelegate {
                 }
             }
         } else {
-            guard let ammount = Double(textField.text!) else { return }
-            
-            switch textField.tag {
-            case 0:
-                currencyTextFields[1].text = String(ammount * rates[1].conversionRates!["USD"]!)
-                currencyTextFields[2].text = String(ammount * rates[2].conversionRates!["EUR"]!)
-            case 1:
-                currencyTextFields[0].text = String(ammount * rates[0].conversionRates!["RUB"]!)
-                currencyTextFields[2].text = String(ammount * rates[2].conversionRates!["EUR"]!)
-            default:
-                currencyTextFields[0].text = String(ammount * rates[0].conversionRates!["RUB"]!)
-                currencyTextFields[1].text = String(ammount * rates[1].conversionRates!["USD"]!)
-            }
         }
     }
     
@@ -84,8 +99,8 @@ extension ViewController: UITextFieldDelegate {
         }
     }
     
-
-
+    
+    
     func setPaddingWithImage(image: UIImage, textField: UITextField){
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
