@@ -8,25 +8,29 @@
 import Alamofire
 
 class CurrenciesTableViewController: UITableViewController {
-
-    let url = "https://v6.exchangerate-api.com/v6/667fa215140eb6a05a16c31a/latest/RUB"
     
+    var spinner = UIActivityIndicatorView(style: .large)
     var codes: [String] = []
     var conversionRates: [String : Double] = [:]
+    var code: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fetchData()
+        initSpinner()
+
+        NetworkManager.shared.fetchData() { (rates) in
+            guard let rates = rates?.conversionRates else { return }
+            self.conversionRates = rates
+            self.codes.append(contentsOf: rates.keys)
+            self.codes.sort(by: <)
+            self.tableView.reloadData()
+            self.spinner.stopAnimating()
+        }
     }
-
+    
     // MARK: - Table view data source
-
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         codes.count
     }
@@ -40,42 +44,32 @@ class CurrenciesTableViewController: UITableViewController {
         content.text = code
         content.secondaryText = String(rate)
         cell.contentConfiguration = content
-
+        
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        code = codes[indexPath.row]
     }
-    */
+    
 
+      //MARK: - Navigation
+     
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let exchangeVC = segue.destination as? ExchangeTableViewController else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        exchangeVC.code = codes[indexPath.row]
+     }
+    
 }
 
-    //MARK: - Private Methods
+//MARK: - Private Methods
 extension CurrenciesTableViewController {
-    private func fetchData() {
-        AF.request(url)
-            .validate()
-            .responseDecodable(of: Rate.self) { dataResponse in
-                switch dataResponse.result {
-                case .success(let value):
-                    guard let rates = value.conversionRates else { return }
-                    self.conversionRates = rates
-                    self.codes.append(contentsOf: rates.keys)
-                    self.codes.sort(by: <)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                    
-                case .failure(let error):
-                    print(error)
-                }
-                
-            }
+    
+    private func initSpinner() {
+        spinner.center = tableView.center
+        tableView.addSubview(spinner)
+        spinner.startAnimating()
+        spinner.hidesWhenStopped = true
     }
 }
